@@ -1,6 +1,7 @@
 const express = require('express')
 const Items = require('../../models/items')
 const router = express.Router()
+const mongoose = require('mongoose')
 
 router.get('/new', (req, res) => {
   return res.render('new')
@@ -41,5 +42,14 @@ router.post('/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
+router.post('/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Items.findById(id)
+    .then(
+      item => item.deleteOne()
+      )
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
 
 module.exports = router
