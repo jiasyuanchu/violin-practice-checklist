@@ -1,7 +1,7 @@
 const express = require('express')
 const Items = require('../../models/items')
 const router = express.Router()
-const mongoose = require('mongoose')
+// const mongoose = require('mongoose')
 
 router.get('/new', (req, res) => {
   return res.render('new')
@@ -32,10 +32,11 @@ router.get('/:id/edit', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const id = req.params.id
-  const name = req.body.name
+  const { name, isDone } = req.body
   return Items.findById(id)
     .then(item => {
       item.name = name
+      item.isDone = isDone === 'on'
       return item.save()
     })
     .then(() => res.redirect(`/items/${id}`))

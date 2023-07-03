@@ -6,8 +6,9 @@ const itemSchema = new Schema({
     type: String,
     required: true 
   },
-  done: {
-    type: Boolean
+  isDone: {
+    type: Boolean,
+    default: false
   }
 })
 module.exports = mongoose.model('Item', itemSchema)
