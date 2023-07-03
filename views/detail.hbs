@@ -1,6 +1,6 @@
 <p>{{ item.name }}</p>
 <a href="/items/{{ item._id }}/edit">edit</a>
 <a href="/">back</a>
-<form action="/items/{{ item._id }}/delete" method="POST" style="display: inline;">
+<form action="/items/{{ item._id }}?_method=DELETE" method="POST" style="display: inline;">
   <button type="submit">delete</button>
 </form>
