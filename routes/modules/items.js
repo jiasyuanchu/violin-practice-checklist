@@ -21,4 +21,25 @@ router.get('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+router.get('/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Items.findById(id)
+    .lean()
+    .then((item) => res.render('edit', { item }))
+    .catch(error => console.log(error))
+})
+
+router.post('/:id/edit', (req, res) => {
+  const id = req.params.id
+  const name = req.body.name
+  return Items.findById(id)
+    .then(item => {
+      item.name = name
+      return item.save()
+    })
+    .then(() => res.redirect(`/items/${id}`))
+    .catch(error => console.log(error))
+})
+
+
 module.exports = router
