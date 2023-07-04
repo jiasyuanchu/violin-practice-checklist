@@ -1,20 +1,19 @@
-<button type="button" onclick="location.href='./items/new'">Create</button>
-
 <ul class="list-group" style="margin-top: 20px">
   {{#each items}}
   <li class="list-group-item">
     <div class="row">
       <div class="col-auto me-auto">
-        <input type="checkbox" name="isDone" {{#if this.isDone }} checked {{/if}} disabled>
+        <input style="vertical-align: middle;" type="checkbox" name="isDone" {{#if this.isDone }} checked {{/if}}
+          disabled>
         <h4 style="display: inline; vertical-align: middle;">
           {{ this.name }}
         </h4>
       </div>
       <div class="col-auto">
-        <a href="./items/{{ this._id }}">detail</a>
-        <a href="./items/{{ this._id }}/edit">edit</a>
+        <a class="btn btn-secondary" href="./items/{{ this._id }}">detail</a>
+        <a class="btn btn-success" href="./items/{{ this._id }}/edit">edit</a>
         <form action="./items/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
-          <button type="submit">delete</button>
+          <button class="btn btn-danger" type="submit">delete</button>
         </form>
       </div>
     </div>
