@@ -2,7 +2,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-const Item = require('../items')
+const Item = require('../item')
 const db = require('../../config/mongoose')
 
 db.once('open', () => {
