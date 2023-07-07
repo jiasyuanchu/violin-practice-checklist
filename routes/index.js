@@ -3,7 +3,7 @@ const router = express.Router()
 
 const home = require('./modules/home')
 const items = require('./modules/items')
-const users = require('./modules/users') 
+const users = require('./modules/users')
 
 const { authenticator } = require('../middleware/auth')
 
