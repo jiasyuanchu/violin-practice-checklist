@@ -4,11 +4,17 @@ const Schema = mongoose.Schema
 const itemSchema = new Schema({
   name: {
     type: String,
-    required: true 
+    required: true
   },
   isDone: {
     type: Boolean,
     default: false
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    index: true,
+    required: true
   }
 })
 module.exports = mongoose.model('Item', itemSchema)
