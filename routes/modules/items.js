@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
-  return Todo.findOne({ _id, userId })
+  return Items.findOne({ _id, userId })
     .lean()
     .then((item) => res.render('detail', { item }))
     .catch(error => console.log(error))
@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
-  return Todo.findOne({ _id, userId })
+  return Items.findOne({ _id, userId })
     .lean()
     .then((item) => res.render('edit', { item }))
     .catch(error => console.log(error))
@@ -35,22 +35,22 @@ router.get('/:id/edit', (req, res) => {
 
 router.put('/:id', (req, res) => {
   const userId = req.user._id
-  const id = req.params.id
+  const _id = req.params.id
   const { name, isDone } = req.body
-  return Todo.findOne({ _id, userId })
+  return Items.findOne({ _id, userId })
     .then(item => {
       item.name = name
       item.isDone = isDone === 'on'
       return item.save()
     })
-    .then(() => res.redirect(`/todos/${_id}`))
+    .then(() => res.redirect(`/items/${_id}`))
     .catch(error => console.log(error))
 })
 
 router.delete('/:id', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
-  return Todo.findOne({ _id, userId })
+  return Items.findOne({ _id, userId })
     .then(
       item => item.deleteOne()
     )
