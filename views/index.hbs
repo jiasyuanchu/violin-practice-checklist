@@ -1,47 +1,22 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-12 text-center" style="margin: 10px">
-      <h5>Get some inspiration</h5>
-    </div>
-    {{!-- start of the one --}}
-    <div class="container d-flex justify-content-center align-items-center">
-      <div style="border: 5px solid #ccc; padding: 20px; text-align: center; max-width: 170px;">
-        <button class="btn btn-primary" style="margin-bottom: 10px;">Random composers</button>
-        <div class="image-wrapper" style="margin-top: 10px;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Taiwan_NASA_Terra_MODIS_2022-07-21.jpg/1200px-Taiwan_NASA_Terra_MODIS_2022-07-21.jpg" alt="Image" class="img-fluid" style="display: block; margin: 0 auto;">
-        </div>
-        <div class="list-wrapper" style="text-align: left; margin-top: 10px;">
-          <ul class="list-unstyled">
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-          </ul>
-        </div>
-        <div class="button-wrapper" style="margin-top: 10px;">
-          <button class="btn btn-secondary">Button 2</button>
-        </div>
-
-        <div class="text-box" style="margin-top: 10px;">
-          <p class="font-weight-bold">Bold Text</p>
-          {{!-- <textarea class="form-control" rows="4"></textarea> --}}
-        </div>
-      </div>
-    </div>
-    {{!-- end of the one --}}
-  </div>
 </div>
 <div class="row">
-  <div class="col-md-12 text-center" style="margin: 10px">
-    <h5>My practice list for today</h5>
+  <div class="col-md-12 text-center" style="margin: 5px">
+    <h5 style="margin-bottom: 5px">My practice list for today</h5>
+    <div>
+      <img
+        src="https://image.spreadshirtmedia.net/image-server/v1/compositions/T6A1PA5835PT17X31Y61D161825478W24930H24997Cx000000/views/1,width=550,height=550,appearanceId=1,backgroundColor=FFFFFF,noPt=true/ling-ling-40-hours-mens-t-shirt.jpg"
+        alt="ling-ling-40-hours" style="margin-top: 5px; width: 300px; height: auto">
+    </div>
     <ul class="list-group" style="margin-top: 20px">
-      <button class="btn btn-outline-light" type="button" onclick="location.href='./items/new'">Create</button>
+      <button class="btn btn-outline-light" type="button" onclick="location.href='./items/new'" style="margin-bottom: 10px">Create</button>
       {{#each items}}
       <li class="list-group-item">
         <div class="row">
           <div class="col-auto me-auto">
             <input style="vertical-align: middle;" type="checkbox" name="isDone" {{#if this.isDone }} checked {{/if}}
               disabled>
-            <h4 style="display: inline; vertical-align: middle;">
+            <h4 style="display: inline; vertical-align: middle; font-size: 20px">
               {{ this.name }}
             </h4>
           </div>
